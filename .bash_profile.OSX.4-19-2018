@@ -28,3 +28,6 @@ export PATH="/Users/alexstein/anaconda3/bin:$PATH"
 alias gcloud-inst0="gcloud compute ssh ecbm6040-as5281@e6040-as5281-inst0"
 alias gcloud-jupyter-local='gcloud compute ssh ecbm6040-as5281@e6040-as5281-inst0 --ssh-flag="-L" --ssh-flag="2222:localhost:8888"'
 alias gcloud-tensorboard-local='gcloud compute ssh ecbm6040-as5281@e6040-as5281-inst0 --ssh-flag="-L" --ssh-flag="4444:localhost:6006"'
+
+# Jekyll aliases
+alias jekyll-local-4000="bundle exec jekyll serve"
