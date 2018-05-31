@@ -26,6 +26,8 @@ export PATH="/Users/alexstein/anaconda3/bin:$PATH"
 
 # AWS additions
 export PATH=~/.local/bin:$PATH
+alias aws-web-server="ssh -i amazon_web_services.pem ubuntu@ec2-13-58-232-86.us-east-2.compute.amazona
+ws.com"
 
 # GCLOUD manual user aliases 
 alias gcloud-inst0="gcloud compute ssh ecbm6040-as5281@e6040-as5281-inst0"
