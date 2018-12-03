@@ -1,0 +1,45 @@
+alias ll="ls -la"
+alias ...="cd ../.."
+
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
+# Git branch in prompt.
+parse_git_branch() {
+   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+
+test -f ~/.git-completion.bash && . $_
+
+# OPAM configuration
+. /Users/alexstein/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/alexstein/Code/Software/google-cloud-sdk/path.bash.inc' ]; then source '/Users/alexstein/Code/Software/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/alexstein/Code/Software/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/alexstein/Code/Software/google-cloud-sdk/completion.bash.inc'; fi
+
+# added by Anaconda3 5.0.1 installer
+export PATH="/Users/alexstein/anaconda3/bin:$PATH"
+
+# AWS additions
+export PATH=~/.local/bin:$PATH
+alias aws-web-server="ssh -i /Users/alexstein/.ssh/amazon_web_services.pem ubuntu@ec2-13-58-232-86.us-east-2.compute.amazonaws.com"
+
+# GCLOUD manual user aliases
+alias gcloud-inst0="gcloud compute ssh ecbm6040-as5281@e6040-as5281-inst0"
+alias gcloud-jupyter-local='gcloud compute ssh ecbm6040-as5281@e6040-as5281-inst0 --ssh-flag="-L" --ssh-flag="2222:localhost:8888"'
+alias gcloud-tensorboard-local='gcloud compute ssh ecbm6040-as5281@e6040-as5281-inst0 --ssh-flag="-L" --ssh-flag="4444:localhost:6006"'
+
+# Jekyll aliases
+alias jekyll-local-4000="bundle exec jekyll serve"
+
+# Recommended by Homebrew
+PATH="/usr/local/sbin:$PATH"
+
+# PHP / Laravel Stuffs
+export PATH=~/.composer/vendor/bin:$PATH
+alias artisan="php artisan"
+alias phpunit="vendor/phpunit/phpunit/phpunit"
